@@ -1,6 +1,8 @@
 import operator
 from colorama import init, Fore, Back, Style
 init()
+import logging
+logging.basicConfig(filename='rpn.log', level=logging.INFO)
 
 OPERATORS = {
 	'+': operator.add,
@@ -19,9 +21,9 @@ def calculate(arg):
 		except:
 			arg2 = stack.pop()
 			arg1 = stack.pop()
+			logging.info(str(operand) + ' operator used')
 			operator_fn = OPERATORS[operand]
 			result = operator_fn(arg1, arg2)
-
 			stack.append(result)
 	return stack.pop()
 
