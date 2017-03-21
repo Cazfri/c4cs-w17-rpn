@@ -25,6 +25,9 @@ def calculate(arg):
 			stack.append(result)
 	return stack.pop()
 
+def something():
+	print("This function doesn't do anything, no need to test for it!")
+
 def main():
 	while True:
 		result = calculate(input('rpn calc> '))
