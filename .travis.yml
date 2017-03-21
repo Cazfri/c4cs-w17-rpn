@@ -3,6 +3,7 @@ python:
  - "3.5"
 install:
  - pip install -r requirements.txt
+ - pip install coveralls
 script:
  coverage run rpn_test.py
 after_success:
