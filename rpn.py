@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-
 import operator
+from colorama import init, Fore, Back, Style
+init()
 
 OPERATORS = {
 	'+': operator.add,
@@ -30,8 +30,19 @@ def something():
 
 def main():
 	while True:
-		result = calculate(input('rpn calc> '))
-		print("Result:", result)
+		userinput = input('rpn calc> ')
+		for word in userinput.split():
+			if word.isdigit():
+				print(Fore.GREEN + word, end=' ')
+			elif word in OPERATORS.keys():
+				print(Fore.RED + word, end=' ')
+			else:
+				print(word, end=' ')
+		print()
+		result = calculate(userinput)
+		print('=\t'+ Fore.BLUE + str(result))
+		print(Style.RESET_ALL, end='')
+		
 
 if __name__ == '__main__':
 	main()
